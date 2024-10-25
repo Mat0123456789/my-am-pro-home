@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link href="./css.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center; /* จัดกลางแนวนอน */
+            align-items: center; /* จัดกลางแนวตั้ง */
+            height: 100vh; /* ความสูงของ viewport */
+            margin: 0; /* ลบระยะขอบ */
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const alertMessage = urlParams.get('alert');
+    
+            if (alertMessage) {
+                alert(alertMessage); // แสดง alert ถ้ามีข้อความใน query parameter
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="main-content">
+    <div class="login-container ">
+        <h2>Login</h2>
+    
+        <form action="/login" method="POST">
+            <label for="username">Username:</label>
+            <input type="text" name="username" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" name="password" required>
+            
+            <button type="submit">Login</button>
+        </form>
+    </div></div>
+</body>
+</html>

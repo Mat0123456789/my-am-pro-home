@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ค้นหาประวัติการเข้าเรียน</title>
+    <link href="./css.css" rel="stylesheet" >
+    
+    
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="/">หน้าแรก</a></li>
+            <li><a href="/attendance">เช็คชื่อ</a></li>
+            <li><a href="/add-student">เพิ่มนักเรียน</a></li>
+            <li><a href="/search-history">ประวัติการเข้าเรียน</a></li>
+            <li><a href="/logout" class="navbarlogout">Logout</a>        </ul>
+    </nav>
+    <div class="main-content">
+    <h1>ค้นหาประวัติการเข้าเรียนของนักเรียน</h1>
+    
+    <form action="/search-history" method="GET">
+        <label for="studentId">กรุณากรอก ID ของนักเรียน:</label>
+        <input type="text" id="studentId" name="studentId" required>
+        <button type="submit">ค้นหา</button>
+    </form>
+
+
+    <% if (attendanceRecords) { %>
+        <h2>ประวัติการเข้าเรียนของนักเรียน (ID: <%= studentId %>)</h2>
+        <% if (attendanceRecords.length > 0) { %>
+            <h3>ชื่อ: <%= attendanceRecords[0].first_name %> <%= attendanceRecords[0].last_name %></h3>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>วันที่</th>
+                        <th>สถานะ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% attendanceRecords.forEach(record => { %>
+                        <tr>
+                            <td><%= new Date(record.active_date).toLocaleDateString('th-TH') %></td>
+                            <td><%= record.status %></td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p>ไม่มีประวัติการเข้าเรียน</p>
+        <% } %>
+    <% } %>
+
+    <a href="/">กลับไปที่หน้าแรก</a>
+</div>
+</body>
+</html>

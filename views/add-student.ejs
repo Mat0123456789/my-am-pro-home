@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Student</title>
+  <link href="./css.css" rel="stylesheet">
+  <script>
+    window.onload = function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const alertMessage = urlParams.get('alert');
+
+        if (alertMessage) {
+            alert(alertMessage); // แสดง alert ถ้ามีข้อความใน query parameter
+        }
+    }
+</script>
+</head>
+<body>
+  <nav class="navbar">
+    <ul>
+        <li><a href="/">หน้าแรก</a></li>
+        <li><a href="/attendance">เช็คชื่อ</a></li>
+        <li><a href="/add-student">เพิ่มนักเรียน</a></li>
+        <li><a href="/search-history">ประวัติการเข้าเรียน</a></li>
+        <li><a href="/logout" class="navbarlogout">Logout</a>
+    </ul>
+</nav>
+
+<div class="main-content">
+    <h1>Add Student</h1>
+    <form action="/add-student" method="POST">
+        <label>Prefix:</label>
+        <select id="prefix" name="prefix_id">
+            <option value="1">นาย</option>
+            <option value="2">นางสาว</option>
+            <option value="3">นาง</option>
+        </select>
+
+        <label>First Name:</label>
+        <input type="text" name="first_name" required>
+
+        <label>Last Name:</label>
+        <input type="text" name="last_name" required>
+
+        <label>Date of Birth:</label>
+        <input type="date" name="date_of_birth">
+
+        <label for="curriculum">Curriculum:</label>
+        <select id="curriculum" name="curriculum_id">
+            <option value="1">วิทยาการคอมพิวเตอร์</option>
+            <option value="2">เทคโนโลยีสารสนเทศ</option>
+        </select>
+
+        <label>Previous School:</label>
+        <input type="text" name="previous_school">
+
+        <label>Address:</label>
+        <textarea name="address"></textarea>
+
+        <label>Telephone:</label>
+        <input type="text" name="telephone">
+
+        <label>Email:</label>
+        <input type="email" name="email">
+
+        <label>Line ID:</label>
+        <input type="text" name="line_id">
+
+        <label>Status:</label>
+        <input type="text" name="status" value="N">
+
+        <label for="section">Section:</label>
+        <select id="section" name="section_id">
+            <option value="1">01</option>
+            <option value="2">02</option>
+        </select>
+
+        <button type="submit">Add Student</button>
+    </form>
+    <div class="back-link">
+        <a href="/">Back to Home</a>
+    </div>
+</div> 
+</body>
+</html>

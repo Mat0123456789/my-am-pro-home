@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Check</title>
+    <link href="./css.css" rel="stylesheet" >
+    <script>
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const alertMessage = urlParams.get('alert');
+
+            if (alertMessage) {
+                alert(alertMessage); // แสดง alert ถ้ามีข้อความใน query parameter
+            }
+        }
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="/">หน้าแรก</a></li>
+            <li><a href="/attendance">เช็คชื่อ</a></li>
+            <li><a href="/add-student">เพิ่มนักเรียน</a></li>
+            <li><a href="/search-history">ประวัติการเข้าเรียน</a></li>
+            <li><a href="/logout" class="navbarlogout">Logout</a>            
+        </ul>
+    </nav>
+
+    <div class="main-content">
+        <div class="section-links" style="display: flex;">
+            <button onclick="window.location.href='/attendance';">sec1</button>
+            <button onclick="window.location.href='/attendance2';">sec2</button>
+        </div>
+        
+
+        <h1>Attendance Check</h1>
+        <form action="/attendance2" method="POST">
+            <input type="hidden" name="section_id" value="<%= sectionId %>"> <!-- ส่ง section_id ไปพร้อมกับฟอร์ม -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Student ID</th>
+                        <th>Name</th>
+                        <th>ขาด</th>
+                        <th>ลา</th>
+                        <th>มา</th>
+                        <th>สาย</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% students.forEach(student => { %>
+                        <tr>
+                            <td><%= student.id %></td>
+                            <td><%= student.first_name %> <%= student.last_name %></td>
+                            <td><input type="radio" name="<%= student.id %>" value="A"></td> <!-- Absent -->
+                            <td><input type="radio" name="<%= student.id %>" value="L"></td> <!-- Leave -->
+                            <td><input type="radio" name="<%= student.id %>" value="P"></td> <!-- Present -->
+                            <td><input type="radio" name="<%= student.id %>" value="T"></td> <!-- Late -->
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+            <button type="submit">Submit Attendance</button>
+        </form>
+    </div>
+</body>
+</html>

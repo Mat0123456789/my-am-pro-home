@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Students List</title>
+  <link href="./css.css" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <ul>
+      <li><a href="/">หน้าแรก</a></li>
+      <li><a href="/attendance">เช็คชื่อ</a></li>
+      <li><a href="/add-student">เพิ่มนักเรียน</a></li>
+      <li><a href="/search-history">ประวัติการเข้าเรียน</a></li>
+      <li><a href="/logout" class="navbarlogout">Logout</a>      </li>
+    </ul>
+  </nav>
+  <div class="main-content">
+    <h1>Students List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Prefix</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Date of Birth</th>
+                <th>Curriculum</th>
+                <th>Previous School</th>
+                <th>Address</th>
+                <th>Telephone</th>
+                <th>Email</th>
+                <th>Line ID</th>
+                <th>Status</th>
+                <th>Section</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% students.forEach(student => { %>
+                <tr>
+                    <td><%= student.id %></td>
+                    <td><%= student.prefix_name %></td>
+                    <td><%= student.first_name %></td>
+                    <td><%= student.last_name %></td>
+                    <td><%= student.date_of_birth.toLocaleDateString('th-TH') %></td>
+                    <td><%= student.curriculum_name %></td>
+                    <td><%= student.previous_school %></td>
+                    <td><%= student.address %></td>
+                    <td><%= student.telephone %></td>
+                    <td><%= student.email %></td>
+                    <td><%= student.line_id %></td>
+                    <td><%= student.status %></td>
+                    <td><%= student.section_id %></td>
+                    <td>
+                        <form action="/edit-student/<%= student.id %>" method="GET" style="display: inline;">
+                            <button type="submit">Edit</button>
+                        </form>
+                        <a href="/delete-student/<%= student.id %>" class="delete-link" onclick="return confirm('คุณแน่ใจใช่ไหมที่จะลบรายการนี้?');"><br>Delete</a>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

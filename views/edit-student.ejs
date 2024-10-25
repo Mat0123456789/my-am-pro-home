@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Student</title>
+        <style>
+            /* styles.css */
+
+/* ทำให้ body มีพื้นหลังและตั้งค่าฟอนต์ */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+/* ตั้งค่าให้ h1 อยู่กึ่งกลาง */
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+/* จัดรูปแบบฟอร์ม */
+form {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* จัดรูปแบบ label และ input */
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="email"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+/* ปรับปุ่ม */
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* จัดรูปแบบลิงค์ */
+a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+        </style>
+</head>
+<body>
+    <h1>Edit Student Information</h1>
+    <form action="/update-student/<%= student.id %>" method="POST">
+        <label for="prefix_id">Prefix: </label>
+        <select name="prefix_id" required>
+            <option value="1" <%= student.prefix_id === 'นาย' ? 'selected' : '' %>>นาย</option>
+            <option value="2" <%= student.prefix_id === 'นางสาว' ? 'selected' : '' %>>นางสาว</option>
+            <option value="3" <%= student.prefix_id === 'นาง' ? 'selected' : '' %>>นาง</option>
+            <!-- เพิ่ม prefix อื่น ๆ ที่ต้องการ -->
+        </select><br>
+
+        <label for="first_name">First Name: </label>
+        <input type="text" name="first_name" value="<%= student.first_name %>" required><br>
+
+        <label for="last_name">Last Name: </label>
+        <input type="text" name="last_name" value="<%= student.last_name %>" required><br>
+
+        <label for="date_of_birth">Date of Birth: </label>
+        <input type="date" name="date_of_birth" value="<%= student.date_of_birth %>" required><br>
+
+        <label for="curriculum_id">Curriculum: </label>
+        <select name="curriculum_id" required>
+            <option value="1" <%= student.curriculum_id === 'วิทยาการคอมพิวเตอร์' ? 'selected' : '' %>>วิทยาการคอมพิวเตอร์</option>
+            <option value="2" <%= student.curriculum_id === 'เทคโนโลยีสารสนเทศ' ? 'selected' : '' %>>เทคโนโลยีสารสนเทศ</option>
+            <!-- เพิ่ม curriculum อื่น ๆ ที่ต้องการ -->
+        </select><br>
+
+        <label for="previous_school">Previous School: </label>
+        <input type="text" name="previous_school" value="<%= student.previous_school %>"><br>
+
+        <label for="address">Address: </label>
+        <input type="text" name="address" value="<%= student.address %>"><br>
+
+        <label for="telephone">Telephone: </label>
+        <input type="text" name="telephone" value="<%= student.telephone %>"><br>
+
+        <label for="email">Email: </label>
+        <input type="email" name="email" value="<%= student.email %>"><br>
+
+        <label for="line_id">Line ID: </label>
+        <input type="text" name="line_id" value="<%= student.line_id %>"><br>
+
+        <label for="status">Status: </label>
+        <input type="text" name="status" value="<%= student.status %>"><br>
+
+        <label for="section_id">Section: </label>
+        <select name="section_id" required>
+            <option value="1" <%= student.section_id === '01' ? 'selected' : '' %>>01</option>
+            <option value="2" <%= student.section_id === '02' ? 'selected' : '' %>>02</option>
+            <!-- เพิ่ม section อื่น ๆ ที่ต้องการ -->
+        </select><br>
+
+        <button type="submit">Update Student</button>
+    </form>
+    <a href="/">Back to Students List</a>
+</body>
+</html>

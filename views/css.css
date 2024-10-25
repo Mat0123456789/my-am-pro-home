@@ -1,0 +1,185 @@
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex; /* Use flexbox for layout */
+    background-color: #f9f9f9;
+    color: #333;
+    height: auto; /* Ensure the body fills the viewport height */
+    margin: 0; /* Remove default margin */
+}
+
+/* Container for Navbar and Main Content */
+.container {
+    display: flex; /* Align navbar and content side by side */
+    width: 100%; /* Full width */
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #333; /* Navbar background color */
+    padding: 10px; /* Inner padding */
+    width: 200px; /* Width of the navbar */
+    min-height: 100vh; /* Minimum height to fill viewport */
+    max-height: auto; /* Prevents navbar from growing too tall */
+    overflow-y: auto; /* Enable vertical scrolling if needed */
+}
+
+.navbar ul {
+    list-style-type: none; /* Remove bullet points */
+    margin: 0; /* No margin */
+    padding: 0; /* No padding */
+}
+
+.navbar li {
+    margin-bottom: 10px; /* Space between items */
+}
+
+.navbar a {
+    color: white; /* Text color */
+    text-decoration: none; /* No underline */
+    display: block; /* Make links block-level */
+    padding: 8px; /* Inner padding */
+}
+
+.navbar a:hover {
+    background-color: #555; /* Background color on hover */
+}
+.navbarlogout {
+    color: white; /* Text color */
+    background-color: #f44336;
+    text-decoration: none; /* No underline */
+    display: block; /* Make links block-level */
+    padding: 8px; /* Inner padding */
+    
+}
+
+/* Main Content Styles */
+.main-content {
+    flex: 1; /* Take up the remaining space */
+    padding: 20px; /* Inner padding */
+}
+.login-container {
+    background-color: #fff;
+    padding: 20px;
+    margin: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px; /* Width of the login form */
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+   
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="date"],
+select,
+textarea {
+    padding: 8px;
+    width: 100%; /* Full width */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+button {
+    padding: 10px;
+    background-color: #4CAF50; /* Button color */
+    color: white; /* Button text color */
+    border: none;
+    cursor: pointer; /* Pointer cursor */
+    border-radius: 4px;
+    font-size: 16px; /* Font size */
+}
+
+button:hover {
+    background-color: #45a049; /* Button hover color */
+}
+
+/* Table Styles */
+table {
+    width: 100%; /* Full width */
+    border-collapse: collapse; /* Collapse borders */
+    margin-top: 20px; /* Space above table */
+}
+
+table, th, td {
+    border: 1px solid #ddd; /* Table border */
+}
+
+th, td {
+    padding: 12px; /* Inner padding */
+    text-align: center; /* Center align text */
+}
+
+thead tr {
+    background-color: #f2f2f2; /* Header background color */
+    font-weight: bold; /* Bold font for header */
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Alternate row color */
+}
+
+/* Delete Link Styles */
+.delete-link {
+    color: #f44336; /* Red color for delete */
+    text-decoration: none; /* No underline */
+    display: block;
+}
+
+.delete-link:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Links for Home and Section Selection */
+.section-links, .home-link {
+    text-align: center; /* Center align text */
+    margin-top: 20px; /* Space above */
+}
+
+.section-links button {
+    padding: 10px 20px; /* Button padding */
+    background-color: #4CAF50; /* Button color */
+    color: white; /* Button text color */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    font-size: 16px; /* Font size */
+    margin: 0 10px; /* Space between buttons */
+}
+
+.section-links button:hover {
+    background-color: #45a049; /* Button hover color */
+}
+
+/* Alert Message */
+.alert {
+    background-color: #ffdddd; /* Alert background color */
+    border-left: 6px solid #f44336; /* Red left border */
+    padding: 10px; /* Inner padding */
+    margin-bottom: 15px; /* Space below alert */
+    color: #a94442; /* Text color */
+}
+
+.alert h3 {
+    margin: 0; /* Remove margin */
+    font-size: 18px; /* Font size */
+}
