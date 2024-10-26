@@ -23,6 +23,7 @@
         <h2>ประวัติการเข้าเรียนของนักเรียน (ID: <%= studentId %>)</h2>
         <% if (attendanceRecords.length > 0) { %>
             <h3>ชื่อ: <%= attendanceRecords[0].first_name %> <%= attendanceRecords[0].last_name %></h3>
+            <p style="color: red;">****A = ขาด,L = ลา,P = มา,T = สาย</p>
             <table border="1">
                 <thead>
                     <tr>
