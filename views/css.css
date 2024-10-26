@@ -122,6 +122,7 @@ table {
 
 table, th, td {
     border: 1px solid #ddd; /* Table border */
+    font-size: small;
 }
 
 th, td {
@@ -182,4 +183,17 @@ tbody tr:nth-child(even) {
 .alert h3 {
     margin: 0; /* Remove margin */
     font-size: 18px; /* Font size */
+}
+
+/* จัดรูปแบบลิงค์ */
+.a {
+    display: block;
+    text-align:left;
+    margin-top: 20px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.a:hover {
+    text-decoration: underline;
 }
